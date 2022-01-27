@@ -1,0 +1,26 @@
+body {
+    background-color: silver;
+}
+
+#box1 {
+    position: relative;
+    width: 200px;
+    height: 50px;
+    background-color: slateblue;
+    margin: 20px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.box {
+    width: 200px;
+    height: 50px;
+    background-color: red;
+    margin: 20px;
+    padding: 20px;
+}
+
+.bekezdes {
+    font-style: italic;
+    color: white;
+}
