@@ -30,3 +30,61 @@ body{
     box-shadow: 0 0 10px gray;
     border-radius: 5px;
 }
+
+#info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+    height: 70px;
+    background-color: rgba(100, 100, 100, 0.5);
+    color: yellow;
+    font-weight: bold;
+    text-shadow: 0 0 2px black;
+    padding: 10px;
+    line-height: 200%;
+    letter-spacing: 2px;
+    border: 2px solid rgb(92, 92, 92);
+    box-shadow: 0 0 10px gray;
+}
+
+#gift {
+    position: absolute;
+    top:300px;
+    left: 500px;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    
+    margin-left: .9em;
+    margin-right: .9em;
+    margin-bottom: 1.2em;
+    
+    border-right: .3em solid transparent;
+    border-bottom: .7em solid yellow;
+    border-left: .3em solid transparent;
+    
+    /* Controlls the size of the stars. */
+    font-size: 24px;
+   }
+#gift:before, #gift:after {
+    content: '';
+    
+    display: block;
+    width: 0;
+    height: 0;
+    
+    position: absolute;
+    top: .6em;
+    left: -1em;
+    
+    border-right: 1em solid transparent;
+    border-bottom: .7em solid yellow;
+    border-left: 1em solid transparent;
+    
+    transform: rotate(-35deg);
+    }
+    
+   #gift:after { 
+    transform: rotate(35deg);
+    }
