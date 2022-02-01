@@ -35,8 +35,8 @@ function fallingGift(){
         }
     }
     if (gifty >= batY){
-        clearGift();
         clearInterval(giftfall);
+        clearGift();
     }
 }
 
