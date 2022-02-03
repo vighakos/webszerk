@@ -1,0 +1,100 @@
+:root{
+    --body-bg: silver;
+    --container-bg: #ffffff;
+    --shadow: gray;
+    --editor-bg: #efefef;
+    --main-fc: black;
+    --btn-bg: rgb(124, 161, 190);
+    --btn-border: rgb(91, 115, 134);
+    --btn-hover: rgb(148, 184, 211);
+}
+    
+body{
+    background-color: var(--body-bg);
+}
+    
+#container{
+    background-color: var(--container-bg);
+    margin:15px;
+    padding: 15px;
+    box-shadow: 0 0 10px var(--shadow);
+    display: flex;
+    flex-direction: row;
+}
+    
+#editor{
+    width: 300px;
+    background-color: var(--editor-bg);
+    text-align: center;
+}
+    
+#timetable{
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+}
+    
+h2{
+    margin:15px;
+}
+    
+hr{
+    width: 80%;
+    color: var(--shadow);
+}
+    
+.table{
+    width: 100%;
+    border: 2px solid var(--main-fc);
+    border-collapse: collapse;
+}
+    
+.table th{
+    background-color: var(--editor-bg);
+    border: 1px solid var(--shadow);
+    padding: 20px;
+}
+    
+.table tbody td{
+    border: 1px solid var(--shadow);
+    width:20%;
+    cursor: pointer;
+}
+    
+.table tfoot td{
+    background-color: var(--editor-bg);
+    font-size: 80%;
+    padding: 6px;
+    letter-spacing: 3px;
+}
+
+table tbody td:hover {
+    box-shadow: inset 0 0 6px var(--shadow);
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin: 5px 15px;
+    color: var(--btn-border);
+    font-size: 90%;
+    font-style: italic;
+}
+
+select, button {
+    display: block;
+    margin: 10px;
+    width: 90%;
+    padding: 10px;
+}
+
+button {
+    background-color: var(--btn-bg);
+    border: 2px solid var(--btn-border);
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: var(--btn-hover);
+    cursor: pointer;
+}

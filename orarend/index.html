@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="stylesheet" href="style.css">
+    <title>Órarend</title>
+</head>
+<body>
+    <div id="container">
+        <div id="editor">
+            <h2>Szerkesztő</h2>
+            <hr>
+            <form>
+                <label for="days">Nap:</label>
+                <select id="days">
+                    <option value="">Válasszon...</option>
+                </select>
+                <label for="hours">Óra:</label>
+                <select id="hours">
+                    <option value="">Válasszon...</option>
+                </select>
+                <label for="subjects">Tantárgy:</label>
+                <select id="subjects">
+                    <option value="">Válasszon...</option>
+                </select>
+                <hr>
+                <button>Hozzáadás</button>
+            </form>
+        </div>
+        <div id="timetable">
+            <h2>Órarend</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Óra</th>
+                        <th>Hétfő</th>
+                        <th>Kedd</th>
+                        <th>Szerda</th>
+                        <th>Csütörtök</th>
+                        <th>Péntek</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>0.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>1.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>2.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>3.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>4.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>5.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>6.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>7.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>8.</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="6">Összesen: 0 óra</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
