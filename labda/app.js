@@ -5,7 +5,7 @@ let speedLbl = document.querySelector('#speedLbl');
 let gift = document.querySelector('#gift');
 let ballsize = 60;
 let batsize = 1200;
-let speed = 3;
+let speed = 6;
 let points = 0;
 let giftx;
 let gifty;
@@ -25,7 +25,7 @@ clearGift();
 let game = setInterval(moveBall, 1);
 
 function fallingGift(){
-    gifty += 1;
+    gifty += 5;
     setGiftPoz(giftx, gifty);
     if (gifty >= batY+20){
         //window.alert('elkaptuk')
@@ -34,7 +34,7 @@ function fallingGift(){
             generateGift();
         }
     }
-    if (gifty >= screenY){
+    if (gifty >= batY){
         clearInterval(giftfall);
         clearGift();
     }
