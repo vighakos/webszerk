@@ -59,6 +59,7 @@ hr{
     border: 1px solid var(--shadow);
     width:20%;
     cursor: pointer;
+    position: relative;
 }
     
 .table tfoot td{
@@ -98,3 +99,44 @@ button:hover {
     background-color: var(--btn-hover);
     cursor: pointer;
 }
+
+.room {
+    padding: 5px;
+    font-size: 60%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.teacher {
+    padding: 5px;
+    font-size: 60%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.blue {
+
+}
+
+.red {
+
+}
+
+.green {
+
+}
+
+.brown {
+
+}
+
+.cyan {
+
+}
+
+.lime {
+
+}
+
