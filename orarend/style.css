@@ -117,26 +117,26 @@ button:hover {
 }
 
 .blue {
-
+    background-color: rgb(67, 100, 247);
 }
 
 .red {
-
+    background-color: rgb(247, 67, 67);
 }
 
 .green {
-
+    background-color: rgb(9, 136, 16);
 }
 
 .brown {
-
+    background-color: rgb(160, 105, 60);
 }
 
 .cyan {
-
+    background-color: rgb(67, 247, 247);
 }
 
 .lime {
-
+    background-color: rgb(139, 247, 67);
 }
 
