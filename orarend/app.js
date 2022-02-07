@@ -4,27 +4,28 @@ let tantargyak = [
         {nev:'Hálózatok', terem: '103', tanar:'VJ', style: 'blue'},
         {nev:'Webprogramozás 1', terem: '311', tanar:'NSZ', style: 'red'},
         {nev:'Webprogramozás 2', terem: '206', tanar:'SD', style: 'green'},
-        {nev:'Asztali alk.', terem: '205', tanar:'TP', style: 'yellow'},
-        {nev:'Szoftvertesztelés', terem: '100', tanar:'FZ', style: 'lime'},
-        {nev:'Szakmai Angol', terem: '213', tanar:'RE', style: 'cyan'},
-        {nev:'Adatbázis kezelés', terem: '206', tanar:'HR', style: 'brown'}
+        {nev:'Asztali alk.', terem: '205', tanar:'TP', style: 'brown'},
+        {nev:'Szoftvertesztelés', terem: '100', tanar:'FZ', style: 'orange'},
+        {nev:'Szakmai Angol', terem: '213', tanar:'RE', style: 'yellow'},
+        {nev:'Adatbázis kezelés', terem: '206', tanar:'HR', style: 'silver'}
     ];
 
+let osszoraszam = document.querySelector('#osszoraszam');
 let orarend = JSON.parse(localStorage.getItem('timetable'));
-if (orarend != null) 
+
+if (orarend != null)
 {
-    orarend.forEach(ora => {
-        let cella = document.querySelector('#cell_'+ora.dayIdx+ora.hourIdx);
-        cella.innerHTML = tantargyak[ora.subjectIdx].nev 
-            + "<span class='room'> " + tantargyak[ora.subjectIdx].terem + "</span>"
-            + "<span class='teacher'> " + tantargyak[ora.subjectIdx].tanar + "</span>";
-        cella.classList.add(tantargyak[ora.subjectIdx].style);
+    orarend.forEach(ora =>{
+        DrawSubject(ora.subjectIdx, ora.dayIdx, ora.hourIdx);
     });
 }
-else 
+else
 {
     orarend = [];
 }
+
+osszoraszam.innerHTML = orarend.length;
+
 let daySelect = document.querySelector('#days');
 let hourSelect = document.querySelector('#hours');
 let subjectSelect = document.querySelector('#subjects');
@@ -45,13 +46,10 @@ addBtn.addEventListener('click', function(){
     }
     else
     {
-        let cella = document.querySelector('#cell_'+dayIndex+hourIndex);
-        cella.innerHTML = tantargyak[subjectIndex].nev;
-
-        orarend.push({dayIdx: dayIndex, hourIdx: hourIndex, subjectIdx: subjectIndex});
-
+        DrawSubject(subjectIndex, dayIndex, hourIndex);
+        orarend.push({dayIdx: dayIndex , hourIdx: hourIndex, subjectIdx: subjectIndex});
+        osszoraszam.innerHTML = orarend.length;
         localStorage.setItem('timetable', JSON.stringify(orarend));
-
         daySelect.value ="";
         hourSelect.value = "";
         subjectSelect.value = "";
@@ -108,4 +106,33 @@ hourSelect.addEventListener('change', function(){
 subjectSelect.addEventListener('change', function(){
     subjectIndex = subjectSelect.value;
 });
+
+//kirajzoljuk a tantárgyat
+function DrawSubject(subjectIndex, dayIndex, hourIndex){
+    let cella = document.querySelector('#cell_'+dayIndex+hourIndex);
+    cella.innerHTML =
+    tantargyak[subjectIndex].nev 
+    + "<span class='x' onclick='deleteCell("+dayIndex+", "+hourIndex+", "+subjectIndex+")'>x</span>" 
+    + "<span class='room'>" + tantargyak[subjectIndex].terem + "</span>"  
+    + "<span class='teacher'>" + tantargyak[subjectIndex].tanar + "</span>";
+    cella.classList.add(tantargyak[subjectIndex].style);
+}
+
+// cella törlése
+function deleteCell(dayIdx, hourIdx, subjectIdx){
+    if(window.confirm('Biztosan törlöd???'))
+    {
+        let cella = document.querySelector('#cell_'+dayIdx+hourIdx);
+        cella.innerHTML = "";
+        cella.classList.remove(tantargyak[subjectIdx].style)
+
+        let index = orarend.findIndex(element => (element.dayIdx == dayIdx) && (element.hourIdx == hourIdx));
+
+        orarend.splice(index, 1);
+
+        localStorage.setItem('timetable', JSON.stringify(orarend));
+
+        osszoraszam.innerHTML = orarend.length;
+    }
+}
 
