@@ -6,7 +6,7 @@ gomb.addEventListener('click', function(){
     a = evszam % 19;
     b = evszam % 4;
     c = evszam % 7;
-    d = (19*a + 24) % 30;
+    d = (19 * a + 24) % 30;
     e = (2 * b + 4 * c + 6 * d + 5) % 7;
     h = 22 + d + e;
 
