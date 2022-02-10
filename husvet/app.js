@@ -20,6 +20,8 @@ gomb.addEventListener('click', function(){
         }
     }
 
+    let punkosd = 49;
+
     if (h <= 31) {
         console.log("Húsvét vasárnap: március " + h);
     }
