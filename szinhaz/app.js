@@ -1,5 +1,6 @@
 let hely = new Array();
-
+let talalat = {};
+let parosHelyekSzama = 0;
 kirajzol();
 kiertekel();
 
@@ -170,7 +171,10 @@ function kiertekel() {
 
     adatDoboz.innerHTML += `<br>8. Feladat: A keresett hely: ${talalat.sor}. sor ${talalat.szek}. szék.`;
 
+    localStorage.setItem('helyek', JSON.stringify(helyek));
 }
+
+
 
 function teleSor(x) {
     let tele = true;
