@@ -1,0 +1,18 @@
+body{
+    background-color: silver;
+}
+
+.sor {
+    display: flex;
+    
+}
+
+.haromdobas {
+    margin: 25px;
+    width: 150px;
+    min-width: 150px;
+}
+
+.kocka {
+    width: 50px;
+}
