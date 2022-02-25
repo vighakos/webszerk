@@ -15,10 +15,31 @@ console.log("9. feladat: " + keterteke() + " olyan dobás, ahol a legnagyobb sz�
 console.log("9. feladat: " + keterteke() + " olyan dobás, ahol a legnagyobb számot mutató kocka a másik két kocka értékének összege.")
 console.log("10. feladat: Ezt a számot mutatták be legkevesebbszer: " + legkevesebb());
 console.log("11. feladat: Ez az összeg többször is előfordult: " + osszeg_elofordul());
+console.log("12. feladat: " + egymassal_egyezo() + " egymással egyező dobások")
+
+function egymassal_egyezo() {
+    let van = false;
+    for(i = 0; i < a.length; i++){
+        for(j = 0; j < a.length; j++){
+            if (a[i] == a[j] || a[i] == b[j] || a[i] == c[j]) {
+                if (b[i] == a[j] || b[i] == b[j] || b[i] == c[j]) {
+                    if (c[i] == a[j] || c[i] == b[j] || c[i] == c[j]) {
+                        van = true;
+                    }
+                }
+            }
+        }
+    }
+    return van ? "Voltak" : "Nem voltak";
+}
 
 function osszeg_elofordul() {
     for(i = 0; i < a.length; i++){
-        
+        for(j = 0; j < a.length; j++){
+            if (a[i] + b[i] + c[i] == a[j] + b[j] + c[j]) {
+                return a[i] + b[i] + c[i];
+            }
+        }
     }
 }
 
