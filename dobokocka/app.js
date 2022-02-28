@@ -12,7 +12,6 @@ console.log("6. feladat: " + azonos_szam())
 console.log("7. feladat: " + kulonbozo_szamok())
 console.log("8. feladat: A dobások " + szazalek().toFixed(2) + "%-a volt 2-es, 4-es, vagy 6-os")
 console.log("9. feladat: " + keterteke() + " olyan dobás, ahol a legnagyobb számot mutató kocka a másik két kocka értékének összege.")
-console.log("9. feladat: " + keterteke() + " olyan dobás, ahol a legnagyobb számot mutató kocka a másik két kocka értékének összege.")
 console.log("10. feladat: Ezt a számot mutatták be legkevesebbszer: " + legkevesebb());
 console.log("11. feladat: Ez az összeg többször is előfordult: " + osszeg_elofordul());
 console.log("12. feladat: " + egymassal_egyezo() + " egymással egyező dobások")
