@@ -12,7 +12,7 @@ body {
     box-shadow: 0 0 10px gray;
     padding: 20px;
     margin: 50px auto;
-    width: 522px;
+    width: 510px;
     text-align: center;
 }
 
@@ -21,9 +21,13 @@ h1 {
 }
 
 #gameTable {
-    width: 522px;
-    height: 522px;
+    width: 510px;
+    height: 510px;
     background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 0;
 }
 
 #buttonBox {
@@ -31,7 +35,7 @@ h1 {
 }
 
 button {
-    width: 165px;
+    width: 160px;
     background-color: gray;
     border: 1px solid black;
     font-size: 122%;
@@ -47,7 +51,7 @@ input {
     background-color: black;
     color: yellow;
     font-family: 'myDigitFont';
-    width: 165px;
+    width: 160px;
     text-align: center;
 }
 
@@ -57,4 +61,49 @@ input {
     color: gray;
     font-weight: bold;
     box-shadow: inset 0 0 5px gray;
+}
+
+.picture {
+    width: 170px;
+    height: 170px;
+    box-sizing: border-box;
+    border: 2px solid gray;
+}
+
+.pic_1 {
+    background-image: url('img/1.png');
+    border: 5px solid red !important;
+    box-shadow: inset 0 0 3px black;
+}
+
+.pic_2 {
+    background-image: url('img/2.png');
+}
+
+.pic_3 {
+    background-image: url('img/3.png');
+}
+
+.pic_4 {
+    background-image: url('img/4.png');
+}
+
+.pic_5 {
+    background-image: url('img/5.png');
+}
+
+.pic_6 {
+    background-image: url('img/6.png');
+}
+
+.pic_7 {
+    background-image: url('img/7.png');
+}
+
+.pic_8 {
+    background-image: url('img/8.png');
+}
+
+.pic_9 {
+    background-image: url('img/9.png');
 }
