@@ -25,3 +25,9 @@ li {
 #noi > li{
     background-color: lightcoral;
 }
+
+#idok > li {
+    background-color: yellow;
+    border-radius: 0;
+    border: none;
+}

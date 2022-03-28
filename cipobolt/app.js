@@ -1,8 +1,10 @@
 let elsodiv = document.querySelector('#elso')
 let masodikdiv = document.querySelector('#masodik')
 let masodikdivFel = document.querySelector('#masodikFel')
+let harmadikdivFel = document.querySelector('#harmadikFel')
 let ffiList = document.querySelector('#ffi')
 let noiList = document.querySelector('#noi')
+let idokList = document.querySelector('#idok')
 let harmadikdiv = document.querySelector('#harmadik')
 let negyedikdiv = document.querySelector('#negyedik')
 
@@ -11,6 +13,100 @@ let datumok_elso = []
 
 elsoFeladat()
 masodikFeladat()
+harmadikFeladat()
+
+function harmadikFeladat() {
+    let idok_tomb = []
+    let str = ""
+
+    idokFeltolt(idok_tomb)
+    idok_tomb.sort(function(a, b){return a - b})
+
+    idokList.innerHTML = idokKiir(idok_tomb)
+
+    console.table(idok_tomb)
+
+    str += `<p>${delUtan(idok_tomb)} ember vásárolt dél és este 8 között</p>`
+    str += _3es4kozott(idok_tomb)
+    str += elsoDelutani(idok_tomb)
+    str += `<p>Átlagosan ${atlagPerc(idok_tomb).toFixed(2)} percenként érkezett rendelés</p>`
+
+
+    harmadikdivFel.innerHTML = str
+}
+
+function atlagPerc(tomb) {
+    let osszeg = 0
+    for(i = 0; i < tomb.length; i++){
+        if (i != tomb.length - 1) {
+            osszeg += tomb[i + 1] - tomb[i]            
+        } else {
+            osszeg += tomb[tomb.length - 1] - tomb[tomb.length - 2]
+        }
+    }
+
+    return (osszeg / 60) / tomb.length
+}
+
+function elsoDelutani(tomb) {
+    let volt = false
+    let rendeles = null
+    for(i = 0; i < tomb.length; i++){
+        if (tomb[i] >= 43200 && tomb[i] <= 72000) {
+            volt = true
+            rendeles = tomb[i]
+            break
+        }
+    }
+
+    return volt ? `<p>${idoKiir(rendeles)}-kor volt az első délutáni rendelés</p>` : `<p>Nem adtak le rendelést délután</p>`
+}
+
+function idoKiir(rendeles) {
+    return `${kiir(Math.round(rendeles / 3600))}:${kiir(rendeles % 60)}`
+}
+
+function _3es4kozott(tomb) {
+    let adtak = false
+    for(i = 0; i < tomb.length; i++){
+        if (tomb[i] >= 10800 && tomb[i] <= 14400) {
+            adtak = true
+            break
+        }
+    }
+    
+    return adtak ? `<p>Adtak le rendelést hajnali 3 és 4 között</p>` : `<p>Nem adtak le rendelést hajnali 3 és 4 között</p>`
+}
+
+function delUtan(tomb) {
+    let db = 0
+
+    for(i = 0; i < tomb.length; i++){
+        if (tomb[i] >= 43200 && tomb[i] < 72000) {
+            db++
+        }
+    }
+
+    return db
+}
+
+function idokKiir(tomb) {
+    let str = ""
+    for(i = 0; i < tomb.length; i++){
+        str += `<li>${kiir(Math.round(tomb[i] / 3600))}:${kiir(tomb[i] % 60)}</li>`
+    }
+    return str
+}
+
+function idokFeltolt(tomb) {
+    tomb[0] = Math.round(Math.random() * (10800 - 60) + 60)
+    for(i = 1; i < 12; i++){
+        tomb[i] = Math.round(Math.random() * (10800 - 60) + tomb[tomb.length - 1])
+        if (tomb[i] >= 86400) {
+            tomb[i] = 86399
+        }
+    }
+}
 
 function masodikFeladat() {
     let f = []
@@ -86,7 +182,7 @@ function elsoFeladat() {
 
     let str = ""
 
-    for(i = 0; i < datumok_elso.length; i++){
+    for(i = 0; i < datumok_elso.length; i++) {
        str += `<p>${kiir(datumok_elso[i].getMonth()+1)}. ${kiir(datumok_elso[i].getDate())}. </p>`
     }
 
@@ -98,7 +194,7 @@ function elsoFeladat() {
 function utolsoSzallitas() {
     //console.log(new Date().getMonth());
     let utolso = 999
-    let nap = new Date()
+    let nap = null
     let honap = false
     let sameDay = false
     let str = ""
@@ -130,14 +226,15 @@ function utolsoSzallitas() {
 
     for(i = 0; i < datumok_elso.length; i++){
         for(j = 0; j < datumok_elso.length; j++){
-            if (datumok_elso[i].getMonth() == datumok_elso[j].getMonth() && datumok_elso[i].getDate() == datumok_elso[j].getDate()) {
+            if (datumok_elso[i].getMonth() == datumok_elso[j].getMonth() && datumok_elso[i].getDate() == datumok_elso[j].getDate() && j != i) {
                 sameDay = true
+                break
             }
         }
     }
 
     str += `<p>Utolsó beszállítás: ${kiir(nap.getMonth() + 1)}. ${kiir(nap.getDate())}.</p>`
-    str += honap ? `<p>Volt ebben a hónapban rendelés</p>` : `<p>Nem volt ebben a hónapban rendelés</p>`
+    str += honap ? `<p>Volt ebben a hónapban beszállítás</p>` : `<p>Nem volt ebben a hónapban beszállítás</p>`
     str += sameDay ? `<p>Lesz ugyanazon a napon beszállítás</p>` : `<p>Nem lesz ugyanazon a napon beszállítás</p>`
     return str
 }
