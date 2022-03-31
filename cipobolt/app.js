@@ -70,6 +70,7 @@ function _3es4kozott(tomb) {
     let adtak = false
     for(i = 0; i < tomb.length; i++){
         if (tomb[i] >= 10800 && tomb[i] <= 14400) {
+            console.log("talált: ", tomb[i]);
             adtak = true
             break
         }
@@ -93,7 +94,11 @@ function delUtan(tomb) {
 function idokKiir(tomb) {
     let str = ""
     for(i = 0; i < tomb.length; i++){
-        str += `<li>${kiir(Math.round(tomb[i] / 3600))}:${kiir(tomb[i] % 60)}</li>`
+        let percek = tomb[i] * 0.0166667
+        let ora = percek / 60
+        let perc = percek % 60
+
+        str += `<li>${kiir(Math.floor(ora))}:${kiir(Math.floor(perc))}</li>`
     }
     return str
 }
