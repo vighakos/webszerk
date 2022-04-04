@@ -293,7 +293,7 @@ document.writeln(`<br><br>4.c: ${voltevasar} 50.000 Ft feletti rendelés`)
 
 let tobbcipoSzaz = tobbcipo * 100 / vasarlasok.length
 
-document.writeln(`<br><br>4.d: A vásárlások ${tobbcipoSzaz.toFixed(2)}%-ában vásáorltak több cipőt is`)
+document.writeln(`<br><br>4.d: A vásárlások ${tobbcipoSzaz.toFixed(2)}%-ában vásároltak több cipőt is`)
 
 function vasarlasokFeltolt() {
     for(i = 0; i < 12; i++){
