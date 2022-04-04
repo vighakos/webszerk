@@ -1,0 +1,36 @@
+.cipoadat {
+    color: blue;
+    background-color: yellow;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.FcipoMeret {
+    background-color: #8888ff;
+    color: #000088;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.NcipoMeret {
+    background-color: #ff8888;
+    color: #660000;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.vasarlasadat {
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: gray;
+    font-weight: bold;
+    margin: 5px;
+}
