@@ -9,18 +9,19 @@ let felveszBtn = document.querySelector('#felveszBtn'),
     allapot = form.allapot,
     leiras = form.leiras,
     extrak = [
-        { 'extra': 'Automata váltó', 'ertek' : form.automatavalto.value },
-        { 'extra': 'Elektromos ablak', 'ertek' : form.elektromosablak.value },
-        { 'extra': 'Alufelni', 'ertek' : form.alufelni.value },
-        { 'extra': 'Klíma', 'ertek' : form.klima.value },
-        { 'extra': 'Tempomat', 'ertek' : form.tempomat.value },
-        { 'extra': 'Vonóhorog', 'ertek' : form.vonohorog.value },
-        { 'extra': 'GPS', 'ertek' : form.gps.value },
-        { 'extra': 'Napfénytető', 'ertek' : form.napfenyteto.value }
+        { 'extra': 'Automata váltó', 'ertek': form.automatavalto.value },
+        { 'extra': 'Elektromos ablak', 'ertek': form.elektromosablak.value },
+        { 'extra': 'Alufelni', 'ertek': form.alufelni.value },
+        { 'extra': 'Klíma', 'ertek': form.klima.value },
+        { 'extra': 'Tempomat', 'ertek': form.tempomat.value },
+        { 'extra': 'Vonóhorog', 'ertek': form.vonohorog.value },
+        { 'extra': 'GPS', 'ertek': form.gps.value },
+        { 'extra': 'CD Rádió', 'ertek': form.cdradio.value },
+        { 'extra': 'Napfénytető', 'ertek': form.napfenyteto.value }
     ],
     ar = form.ar,
-    kep = form.kep
+    kep = form.kep;
 
 felveszBtn.addEventListener('click', () => {
-    alert('gépájátműs🚗🚓🚕🚛 felvévácve :)👳🏿‍♀️👨🏿')
-})
+    alert('Gépjármű felvéve!');
+});
