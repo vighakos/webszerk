@@ -20,201 +20,216 @@
         <h1>Javascript - Űrlap kezelése</h1>
     </header>
     <main>
-        <!--
-        kategória - select
-        gyártó - select
-        típus - text
-        évjárat -number
-        szín - text
-        üzemanyag - select
-        állapot - radiobutton
-        leirás - textarea
-        extrák - checkbox
-        ár - number
-        kép - file
-        -->
-        <h3>Új gépjármű felvétele</h3>
-        <hr>
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              <h5>Új gépjármű felvétele</h5>
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <form enctype="multipart/form-data">
+              <div class="form-floating mb-3">
+                  <select class="form-select" id="kategoria">
+                    <option value="" selected>Válasszon...</option>
+                    <option value="Személyautó">Személyautó</option>
+                    <option value="Kishaszonjármű">Kishaszonjármű</option>
+                    <option value="Autóbusz">Autóbusz</option>
+                    <option value="Lakókocsi">Lakókocsi</option>
+                    <option value="Munkagép">Munkagép</option>
+                    <option value="Pótkocsi / Utánfutó">Pótkocsi / Utánfutó</option>
+                    <option value="Motorkerékpár">Motorkerékpár</option>
+                    <option value="Egyéb">Egyéb</option>
+                  </select>
+                  <label for="kategoria">Kategória...<em>*</em></label>
+              </div>
+  
+              <div class="form-floating mb-3">
+                  <select class="form-select" id="gyarto">
+                    <option value="" selected>Válasszon...</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Alfa Romeo">Alfa Romeo</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Citroen">Citroen</option>
+                    <option value="Dacia">Dacia</option>
+                    <option value="Fiat">Fiat</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Kia">Kia</option>
+                    <option value="Lada">Lada</option>
+                    <option value="Mazda">Mazda</option>
+                    <option value="Mercedes-benz">Mercedes-benz</option>
+                    <option value="Nissan">Nissan</option>
+                    <option value="Opel">Opel</option>
+                    <option value="Peugeot">Peugeot</option>
+                    <option value="Porsche">Porsche</option>
+                    <option value="Renault">Renault</option>
+                    <option value="Seat">Seat</option>
+                    <option value="Skoda">Skoda</option>
+                    <option value="Suzuki">Suzuki</option>
+                    <option value="Tesla">Tesla</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                    <option value="Volvo">Volvo</option>
+                  </select>
+                  <label for="gyarto">Gyártó...<em>*</em></label>
+              </div>
+  
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="tipus" placeholder="Típus...">
+                  <label for="tipus">Típus...<em>*</em></label>
+              </div>
+  
+              <div class="form-floating mb-3">
+                  <input type="number" class="form-control" id="evjarat" placeholder="Évjárat..." min="1900" value="0" max="2022">
+                  <label for="evjarat">Évjárat...<em>*</em></label>
+              </div>
+  
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="szin" placeholder="Szín...">
+                  <label for="szin">Szín...</label>
+              </div>
+  
+              <div class="form-floating mb-3">
+                  <select class="form-select" id="uzemanyag">
+                    <option value="" selected>Válasszon...</option>
+                    <option value="Benzin">Benzin</option>
+                    <option value="Díezel">Díezel</option>
+                    <option value="Elektromos">Elektromos</option>
+                    <option value="Hibrid">Hibrid</option>
+                  </select>
+                  <label for="uzemanyag">Üzemanyag...<em>*</em></label>
+              </div>
+  
+              <label class="form-check-label mb-3" for="">Állapot:</label>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="allapot" value="Normál" checked>
+                  <label class="form-check-label" for="allapot">
+                    Normál
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="allapot" value="Sérült">
+                  <label class="form-check-label" for="allapot">
+                    Sérült
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="allapot" value="Hiányos">
+                  <label class="form-check-label" for="allapot">
+                    Hiányos
+                  </label>
+              </div>
+              <div class="form-check mb-3">
+                  <input class="form-check-input" type="radio" name="allapot" value="Fődarab hibás">
+                  <label class="form-check-label" for="allapot">
+                    Fődarab hibás
+                  </label>
+              </div>
+  
+              <div class="form-floating mb-3">
+                  <textarea class="form-control" placeholder="Leírás..." id="leiras" style="min-height: 200px;"></textarea>
+                  <label for="leiras">Leírás...</label>
+              </div>
+  
+              <label class="form-check-label mb-3" for="extrak">Extrák:</label>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="automatavalto">
+                  <label class="form-check-label" for="automatavalto">
+                    Automata váltó
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="elektromosablak">
+                  <label class="form-check-label" for="elektromosablak">
+                    Elektromos ablak
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="alufelni">
+                  <label class="form-check-label" for="alufelni">
+                    Alufelni
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="klima">
+                  <label class="form-check-label" for="klima">
+                    Klíma
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="tempomat">
+                  <label class="form-check-label" for="tempomat">
+                    Tempomat
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="vonohorog">
+                  <label class="form-check-label" for="vonohorog">
+                    Vonóhorog
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="gps">
+                  <label class="form-check-label" for="gps">
+                    GPS
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="cdradio">
+                  <label class="form-check-label" for="cdradio">
+                    CD rádió
+                  </label>
+              </div>
+              <div class="form-check mb-3">
+                  <input class="form-check-input" type="checkbox" id="napfenyteto">
+                  <label class="form-check-label" for="napfenyteto">
+                    Napfénytető
+                  </label>
+              </div>
+  
+              <div class="form-floating mb-3">
+                  <input type="number" class="form-control" id="ar" placeholder="Ár (Ft)..." min="0" value="0">
+                  <label for="ar">Ár (Ft)...<em>*</em></label>
+              </div>
+  
+              <div class="form-floating mb-3">
+                  <input type="file" class="form-control" id="kep" placeholder="Fénykép..." accept="image/*">
+                  <label for="kep">Fénykép...</label>
+              </div>
+              <p class="text-muted text-center">
+                A <em>*</em>-al jelölt adatok megadása kötelező!
+              </p>
+              <button class="btn btn-primary" id="felveszBtn">Felvesz</button>
+          </form>
+          </div>
+        </div>
+      </div>
 
-        <form action="#" method="POST" enctype="multipart/form-data">
-            <div class="form-floating mb-3">
-                <select class="form-select" id="kategoria">
-                  <option selected>Válasszon...</option>
-                  <option value="Személyautó">Személyautó</option>
-                  <option value="Kishaszonjármű">Kishaszonjármű</option>
-                  <option value="Autóbusz">Autóbusz</option>
-                  <option value="Lakókocsi">Lakókocsi</option>
-                  <option value="Munkagép">Munkagép</option>
-                  <option value="Pótkocsi / Utánfutó">Pótkocsi / Utánfutó</option>
-                  <option value="Motorkerékpár">Motorkerékpár</option>
-                  <option value="Egyéb">Egyéb</option>
-                </select>
-                <label for="kategoria">Kategória...</label>
-            </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Kategória</th>
+            <th>Gyártó</th>
+            <th>Típus</th>
+            <th>Évszám</th>
+            <th>Szín</th>
+            <th>Ár</th>
+            <th><a href="#">Részletek</a></th>
+          </tr>
+        </thead>
+        <tbody id="lista"></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="7">Összesen: <span id="summ">0</span> gépjármű</td>
+          </tr>
+        </tfoot>
+      </table>
 
-            <div class="form-floating mb-3">
-                <select class="form-select" id="gyarto">
-                  <option selected>Válasszon...</option>
-                  <option value="Audi">Audi</option>
-                  <option value="Alfa Romeo">Alfa Romeo</option>
-                  <option value="BMW">BMW</option>
-                  <option value="Citroen">Citroen</option>
-                  <option value="Dacia">Dacia</option>
-                  <option value="Fiat">Fiat</option>
-                  <option value="Ford">Ford</option>
-                  <option value="Hyundai">Hyundai</option>
-                  <option value="Kia">Kia</option>
-                  <option value="Lada">Lada</option>
-                  <option value="Mazda">Mazda</option>
-                  <option value="Mercedes-benz">Mercedes-benz</option>
-                  <option value="Nissan">Nissan</option>
-                  <option value="Opel">Opel</option>
-                  <option value="Peugeot">Peugeot</option>
-                  <option value="Porsche">Porsche</option>
-                  <option value="Renault">Renault</option>
-                  <option value="Seat">Seat</option>
-                  <option value="Skoda">Skoda</option>
-                  <option value="Suzuki">Suzuki</option>
-                  <option value="Tesla">Tesla</option>
-                  <option value="Toyota">Toyota</option>
-                  <option value="Volkswagen">Volkswagen</option>
-                  <option value="Volvo">Volvo</option>
-                </select>
-                <label for="gyarto">Gyártó...</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="tipus" placeholder="Típus...">
-                <label for="tipus">Típus...</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="evjarat" placeholder="Évjárat..." min="0" value="0">
-                <label for="evjarat">Évjárat...</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="szin" placeholder="Szín...">
-                <label for="szin">Szín...</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <select class="form-select" id="uzemanyag">
-                  <option selected>Válasszon...</option>
-                  <option value="Benzin">Benzin</option>
-                  <option value="Díezel">Díezel</option>
-                  <option value="Elektromos">Elektromos</option>
-                  <option value="Hibrid">Hibrid</option>
-                </select>
-                <label for="uzemanyag">Üzemanyag...</label>
-            </div>
-
-            <label class="form-check-label mb-3" for="">
-                Állapot:
-            </label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="allapot" value="Normál" checked>
-                <label class="form-check-label" for="allapot">
-                  Normál
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="allapot" value="Sérült">
-                <label class="form-check-label" for="allapot">
-                  Sérült
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="allapot" value="Hiányos">
-                <label class="form-check-label" for="allapot">
-                  Hiányos
-                </label>
-            </div>
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="radio" name="allapot" value="Fődarab hibás">
-                <label class="form-check-label" for="allapot">
-                  Fődarab hibás
-                </label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <textarea class="form-control" placeholder="Leírás..." id="leiras" style="min-height: 200px;"></textarea>
-                <label for="leiras">Leírás...</label>
-            </div>
-
-            <label class="form-check-label mb-3" for="extrak">
-                Extrák:
-              </label>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="automatavalto">
-                <label class="form-check-label" for="automatavalto">
-                  Automata váltó
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="elektromosablak">
-                <label class="form-check-label" for="elektromosablak">
-                  Elektromos ablak
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="alufelni">
-                <label class="form-check-label" for="alufelni">
-                  Alufelni
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="klima">
-                <label class="form-check-label" for="klima">
-                  Klíma
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="tempomat">
-                <label class="form-check-label" for="tempomat">
-                  Tempomat
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="vonohorog">
-                <label class="form-check-label" for="vonohorog">
-                  Vonóhorog
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gps">
-                <label class="form-check-label" for="gps">
-                  GPS
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="cdradio">
-                <label class="form-check-label" for="cdradio">
-                  CD rádió
-                </label>
-            </div>
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="napfenyteto">
-                <label class="form-check-label" for="napfenyteto">
-                  Napfénytető
-                </label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input type="number" class="form-control" id="ar" placeholder="Ár (Ft)..." min="0" value="0">
-                <label for="ar">Ár (Ft)...</label>
-            </div>
-
-            <div class="form-floating mb-3">
-                <input type="file" class="form-control" id="kep" placeholder="Fénykép..." accept="image/*">
-                <label for="kep">Fénykép...</label>
-            </div>
-
-            <button class="btn btn-primary" id="felveszBtn">Felvesz</button>
-        </form>
     </main>
     <footer>
-        Bajai SZC Türr IStván Technikum - 1/13.SZFT
+        Bajai SZC Türr István Technikum - 1/13.SZFT
     </footer>
 </div>
 </body>
