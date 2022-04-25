@@ -30,6 +30,7 @@ if (adatok = localStorage.getItem('gepjarmuvek')) {
 }
 
 formReset()
+loadTable()
 
 felveszBtn.addEventListener('click', () => {
     if (kategoria.value == "" || 

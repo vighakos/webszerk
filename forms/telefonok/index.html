@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    <title>Telefonok</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="text-center">Telefonok</h1>
+        </header>
+
+        <main>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Telefon felvétel
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <form enctype="multipart/form-data">
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="gyarto" id="gyarto">
+                                <option value="" selected>Válasszon...</option>
+                                <option value="apple">Apple</option>
+                                <option value="nokia">Nokia</option>
+                                <option value="huawei">Huawei</option>
+                                <option value="samsung">Samsung</option>
+                                <option value="xiaomi">Xiaomi</option>
+                            </select>
+                            <label for="gyarto">Gyártó <em>*</em></label>
+                        </div>
+        
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="text" name="model" id="model">
+                            <label for="model">Model</label>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="memoria" id="memoria" min="0">
+                            <label for="memoria">Memória (GB) <em>*</em></label>
+                        </div>
+        
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="kamera" id="kamera" min="0">
+                            <label for="kamera">Kamera (MP)</label>
+                        </div>
+        
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="os" id="os">
+                                <option value="" selected>Válasszon...</option>
+                                <option value="android">Android</option>
+                                <option value="ios">IOS</option>
+                                <option value="egyeb">Egyéb</option>
+                            </select>
+                            <label for="os">Operációs rendszer <em>*</em></label>
+                        </div>
+        
+                        <div class="form-floating mb-3">
+                            <select class="form-select" name="szolg" id="szolg">
+                                <option value="" selected>Válasszon...</option>
+                                <option value="telekom">Telekom</option>
+                                <option value="yettel">Yettel</option>
+                                <option value="vodafone">Vodafone</option>
+                                <option value="fuggetlen">Független</option>
+                                <option value="egyeb">Egyéb</option>
+                            </select>
+                            <label for="szolg">Szolgáltató <em>*</em></label>
+                        </div>
+        
+                        <div class="form-floating mb-3">
+                            <input class="form-control" type="number" name="ar" id="ar" min="0">
+                            <label for="ar">Ár (Ft) <em>*</em></label>
+                        </div>
+        
+                        <div class="form-floating mb-3">
+                            <textarea class="form-control" name="leiras" id="leiras"></textarea>
+                            <label for="leiras">Leírás</label>
+                        </div>
+        
+                        <p class="text-center text-muted">A <em>*</em>-al jelölt mezők kitöltése kötelező!</p>
+        
+                        <button class="btn btn-primary" id="felveszBtn">Felvesz</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Táblázat
+                  </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <table class="table">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>Gyártó</th>
+                                <th>Model</th>
+                                <th>Memória</th>
+                                <th>Kamera</th>
+                                <th>Operációs rendszer</th>
+                                <th>Szolgáltató</th>
+                                <th>Ár (Ft)</th>
+                                <th>Leírás</th>
+                              </tr>
+                            </thead>
+                            <tbody id="lista"></tbody>
+                            <tfoot>
+                              <tr>
+                                <td class="text-center" colspan="9">Összesen: <span id="summ">0</span> telefon</td>
+                              </tr>
+                            </tfoot>
+                          </table>
+                          <button class="btn btn-danger" id="kiurit">Tábla kiürítése</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </main>
+
+        
+    </div>
+</body>
+</html>
