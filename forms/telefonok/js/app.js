@@ -2,7 +2,8 @@ let felveszBtn = document.querySelector('#felveszBtn'),
     form = document.querySelector('form'),
     lista = document.querySelector('#lista'),
     summ = document.querySelector('#summ'),
-    kiurit = document.querySelector('#kiurit'),
+    kiuritBtn = document.querySelector('#kiuritBtn'),
+    resetBtn = document.querySelector('#resetBtn'),
     gyarto = form.gyarto,
     model = form.model,
     memoria = form.memoria,
@@ -17,13 +18,16 @@ if (adatok = localStorage.getItem('telefonok')) {
     telefonok = JSON.parse(adatok)
 }
 
-formReset()
+resetForm()
 loadTable()
 
-kiurit.addEventListener('click', resetStorage())
+kiuritBtn.addEventListener('click', resetStorage)
+
+resetBtn.addEventListener('click', resetForm)
 
 felveszBtn.addEventListener('click', () => {
     if (gyarto.value == '' ||
+        model.value == '' ||
         memoria.value == 0 ||
         os.value == '' ||
         szolg.value == '' ||
@@ -40,7 +44,7 @@ felveszBtn.addEventListener('click', () => {
             'os': os.value,
             'szolg': szolg.value,
             'ar': ar.value,
-            'leiras': leiras.value
+            'leiras': leiras.value == '' ? '-' : leiras.value
         }
 
         telefonok.push(telefon)
@@ -50,8 +54,12 @@ felveszBtn.addEventListener('click', () => {
 })
 
 function resetStorage() {
-    localStorage.clear()
-    loadTable()
+    if (confirm('Biztosan ki akarja üríteni a tábla tartalmát?')) {
+        localStorage.clear()
+        lista.innerHTML = ''
+        telefonok = []
+        loadTable()
+    }
 }
 
 function loadTable() {
@@ -102,7 +110,7 @@ function loadTable() {
     })
 }
 
-function formReset() {
+function resetForm() {
     gyarto.value = ''
     model.value = ''
     memoria.value = 0
