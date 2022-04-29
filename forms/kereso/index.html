@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/kereses.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h3>Adatok keresése</h3>
+        </header>
+        
+        <main>
+            <form action="#">
+                <div class="form-floating m-3">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="">
+                    <label for="floatingInput">Add meg a keresendő kifejezést...</label>
+                </div>
+            </form>
+
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Gender</th>
+                        <th>Address</th>
+                        <th>E-mail</th>
+                        <th class="text-end">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ide olvassuk be az adatokat -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">Összesen: <span>0</span> rekord.</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+
+        <footer>
+            Bajai SZC Türr István Technikum - 1/13. SZFT
+        </footer>
+
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/kereses.js"></script>
+</body>
+</html>
