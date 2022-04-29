@@ -1,0 +1,40 @@
+body {
+    background-color: silver;
+}
+
+.container {
+    background-color: white;
+    box-shadow: 0 0 15px gray;
+    padding: 10px;
+}
+
+header {
+    background-color: slategray;
+    padding: 50px;
+    color: white;
+    text-shadow: 0 0 5px black;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 80%;
+}
+
+em {
+    color: red;
+    font-weight: bold;
+}
+
+.missing {
+    background-color: rgb(246, 214, 214) !important;
+    border-color: rgb(169, 68, 68);
+}
