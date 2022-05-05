@@ -1009,7 +1009,8 @@ searchField.addEventListener('keyup', () => {
 
 function loadData(condition){
     let tableBody = document.querySelector('tbody');
-    
+    let caseSensitive = document.querySelector('#caseSensitive').value
+
     tableBody.innerHTML = '';
     let i = 0;
 
