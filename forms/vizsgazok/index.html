@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Vizsgára jelentkezés</h1>
+        </header>
+        <main>
+            <form>
+                <div class="form-floating mb-3">
+                    <select id="vizsgatargy" class="form-select">
+                        <option value="" selected>Válasszon...</option>
+                        <option value="Adatbázis">Adatbázis</option>
+                        <option value="Frontend-Backend">Frontend-Backend</option>
+                        <option value="Asztali alk">Asztali alk</option>
+                        <option value="Mobil alk">Mobil alk</option>
+                    </select>
+                    <label for="vizsgatargy">Vizsgatárgy...</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select id="idopont" class="form-select"></select>
+                    <label for="idopont">Időpont</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" type="text" name="nevinput" id="nevinput">
+                    <label for="nevinput">Név...</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" type="email" name="email" id="email">
+                    <label for="email">E-mail...</label>
+                </div>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="elfogad">
+                    <label class="form-check-label" for="elfogad">
+                        Elfogadtam a szabályzatot
+                    </label>
+                </div>
+                <button class="btn btn-success" id="jelentkezBtn">Jelentkezés</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
