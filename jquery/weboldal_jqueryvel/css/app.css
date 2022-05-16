@@ -1,0 +1,15 @@
+.carousel-caption{
+    color: white;
+    text-shadow: 0 0 2px black;
+    background-color: rgba(125, 125, 125, 0.4);
+}
+
+
+footer{
+    background-color: black;
+    color: white;
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 20px;
+    font-size: 80%;
+}
