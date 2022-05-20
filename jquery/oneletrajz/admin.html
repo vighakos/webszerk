@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/admin.js" defer></script>
+
+    <title>Önéletrajz</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Önéletrajz</h1>
+        </header>
+        <main>
+            <form enctype="multipart/form-data">
+                <h1>Személyes adatok</h1> <hr>
+                
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="veznev" placeholder="Vezetéknév...">
+                    <label for="veznev">Vezetéknév...<em>*</em></label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="kernev" placeholder="Keresztnév...">
+                    <label for="kernev">Keresztnév...<em>*</em></label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" placeholder="E-mail...">
+                    <label for="email">E-mail cím...</label>
+                    <p class="text-muted">Pl.: pelda@email.hu</p>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" id="cim" class="form-control" placeholder="Lakcím...">
+                    <label for="cim">Lakcím...<em>*</em></label>
+                    <p class="text-muted">Pl.: 6500 Baja, Petőfi S. u. 70</p>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" id="telszam" class="form-control" placeholder="Telefonszám...">
+                    <label for="telszam">Telefonszám...</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <h5><b>Születési idő<em>*</em></b></h5>
+                    <input type="number" id="szulev" class="form-control mb-3" placeholder="..." min="1900" max="2022">
+                    <select class="form-select mb-3" id="szulho">
+                        <option value="" selected>Hónap</option>
+                        <option value="0">Január</option>
+                        <option value="2">Február</option>
+                        <option value="1">Március</option>
+                        <option value="0">Április</option>
+                        <option value="1">Május</option>
+                        <option value="0">Június</option>
+                        <option value="1">Július</option>
+                        <option value="1">Augusztus</option>
+                        <option value="0">Szeptember</option>
+                        <option value="1">Október</option>
+                        <option value="0">November</option>
+                        <option value="1">December</option>
+                    </select>
+                    <select id="szulnap" class="form-select mb-3"></select>
+                    <p class="text-muted">Pl.: 2001 szeptember 11</p>
+                </div>
+
+                <h1>Tapasztalat</h1> <hr>
+
+                <h3>Beszélt nyelvek:</h3> <br>
+                <div class="row">
+                    <div class="form-floating mb-3 col-lg-4">
+                        <select id="nyelv1" class="form-select">
+                            <option value="" selected>Nincs</option>
+                            <option value="Angol">Angol</option>
+                            <option value="Német">Német</option>
+                            <option value="Francia">Francia</option>
+                            <option value="Spanyol">Spanyol</option>
+                            <option value="Orosz">Orosz</option>
+                            <option value="Lengyel">Lengyel</option>
+                            <option value="Szerb">Szerb</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-floating mb-3 col-lg-4">
+                        <select id="nyelv2" class="form-select">
+                            <option value="" selected>Nincs</option>
+                            <option value="Angol">Angol</option>
+                            <option value="Német">Német</option>
+                            <option value="Francia">Francia</option>
+                            <option value="Spanyol">Spanyol</option>
+                            <option value="Orosz">Orosz</option>
+                            <option value="Lengyel">Lengyel</option>
+                            <option value="Szerb">Szerb</option>
+                        </select>
+                    </div>
+    
+                    <div class="form-floating mb-3 col-lg-4">
+                        <select id="nyelv3" class="form-select">
+                            <option value="" selected>Nincs</option>
+                            <option value="Angol">Angol</option>
+                            <option value="Német">Német</option>
+                            <option value="Francia">Francia</option>
+                            <option value="Spanyol">Spanyol</option>
+                            <option value="Orosz">Orosz</option>
+                            <option value="Lengyel">Lengyel</option>
+                            <option value="Szerb">Szerb</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3>Egyebek</h3> <hr>
+                <div class="form-floating mb-3">
+                    <input type="text" id="hobbi" class="form-control" placeholder="...">
+                    <label for="hobbi">Hobbik...</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" id="egyeb" class="form-control" placeholder="...">
+                    <label for="egyeb">Egyéb...</label>
+                </div>
+
+                <hr>
+                <p class="text-center">A <em>*</em>-al jelölt mezők kitöltése kötelező!</p>
+                <button class="btn btn-success" id="felveszBtn">Felvétel</button>
+
+            </form>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

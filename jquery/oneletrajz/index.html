@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="szul" placeholder="Születési idő...">
+                    <input type="number" class="form-control" id="szul" placeholder="Születési idő..." min="1900" max="2022">
                     <label for="szul">Születési idő...</label>
                 </div>
                 
@@ -64,7 +64,9 @@
     munkatapasztalat
 -->
                 <div class="form-floating mb-3">
-                    <input type="number" id="tankezd" class="form-control mb-3" placeholder="..." >
+
+                    <h3>Tanulmány kezdete</h3>
+                    <input type="number" id="tankezd" class="form-control mb-3" placeholder="..." min="1900" max="2022">
                     <select class="form-select mb-3" id="honapokkezd">
                         <option value="" selected>Hónap</option>
                         <option value="Január">Január</option>
@@ -81,11 +83,10 @@
                         <option value="December">December</option>
                     </select>
                     <select id="napokkezd" class="form-select mb-3"></select>
-                    <label for="tankezd">Tanulmány kezdete...</label>
                     <p class="text-muted">Pl.: 2018 szeptember 1</p>
 
                     <h3>Tanulmány vége</h3>
-                    <input type="number" id="tanveg" class="form-control mb-3" placeholder="..." >
+                    <input type="number" id="tanveg" class="form-control mb-3" placeholder="..." min="1900" max="2022">
                     <select class="form-select mb-3" id="honapokveg">
                         <option value="" selected>Hónap</option>
                         <option value="Január">Január</option>
@@ -102,8 +103,8 @@
                         <option value="December">December</option>
                     </select>
                     <select id="napokveg" class="form-select mb-3"></select>
-                    <label for="tanveg">Tanulmány kezdete...</label>
                     <p class="text-muted">Pl.: 2022 január 15</p>
+
                 </div>
                 <div class="form-floating mb-3">
                     <input type="text" id="" class="form-control" placeholder="...">
