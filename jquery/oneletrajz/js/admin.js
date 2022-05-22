@@ -22,11 +22,31 @@ if (adatok = localStorage.getItem('oneletrajzok')) {
     oneletrajzok = JSON.parse(adatok)
 }
 
-$("#szulho").on("change", function() {
-    $("#szulnap").html(napFeltolt($('#szulho').val()))
+oneletrajzok[0] = {
+    'id': 0,
+    'veznev': "Vigh",
+    'kernev': "Ákos",
+    'email': "akos1569@gmail.com",
+    'cim': "6521 Vaskút, Damjanich u. 66/A",
+    'telszam': "06709679323",
+    'szulev': 2001,
+    'szulho': "December",
+    'szulnap': 15,
+    'nyelvek': [
+        {'nyelv1': "Angol"},
+        {'nyelv2': "Német"},
+        {'nyelv3': "Nincs"}
+    ],
+    'hobbik': "nincs :)",
+    'egyeb': ""
+}
+localStorage.setItem('oneletrajzok', JSON.stringify(oneletrajzok))
+
+$("#szulho").on("change", () => {
+    $("#szulnap").html(napFeltolt($("#szulho").val()))
 })
 
-$("#felveszBtn").on("click", function() {
+$("#felveszBtn").on("click", () => {
     if (veznev.value == "" ||
         kernev.value == "" ||
         cim.value == "" ||
@@ -63,16 +83,14 @@ $("#felveszBtn").on("click", function() {
 function napFeltolt(napok) {
     let db = 0
     let str = ''
-    switch (napok) {
+    switch (parseInt(napok)) {
         case 0: {db = 30; break;}
         case 1: {db = 31; break;}
         case 2: {db = 28; break;}
-        default: break;
     }
     if ((szulev % 4 == 0) && (szulev % 100 != 0) || (szulev % 400 == 0) && napok == 2) {
         db = 29    
     }
-    
     for(i = 0; i < db; i++){
         str += `<option value=${i+1}>${i+1}</option>`
     }

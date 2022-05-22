@@ -92,8 +92,7 @@ function getAnimals(categories)
             <div class="card-body">
               <a href="#" class="card-link">Megveszem</a>
               </div>
-            </div>`;
-              
+            </div>`
         }
     });
 

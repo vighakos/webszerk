@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <script src="js/jquery.min.js" defer></script>
     <script src="js/bootstrap.min.js" defer></script>
     <script src="js/app.js" defer></script>
 
@@ -19,107 +20,10 @@
     <div class="container">
         <header>
             <h1>Önéletrajz</h1>
+            <a class="btn btn-info" href="admin.html">Továbbiak hozzáadása</a>
         </header>
         <main>
-            <form enctype="multipart/form-data">
-                <h1>Személyes adatok</h1>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="veznev" placeholder="Vezetéknév...">
-                    <label for="veznev">Vezetéknév...</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="kernev" placeholder="Keresztnév...">
-                    <label for="kernev">Keresztnév...</label>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="email" placeholder="E-mail...">
-                    <label for="email">E-mail cím...</label>
-                    <p class="text-muted">Pl.: pelda@email.hu</p>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="szul" placeholder="Születési idő..." min="1900" max="2022">
-                    <label for="szul">Születési idő...</label>
-                </div>
-                
-                <div class="form-floating mb-3">
-                    <input type="text" id="cim" class="form-control" placeholder="Lakcím...">
-                    <label for="cim">Lakcím...</label>
-                    <p class="text-muted">Pl.: 6500 Baja, Petőfi S. u. 70</p>
-                </div>
-
-                <div class="form-floating mb-3">
-                    <input type="text" id="telszam" class="form-control" placeholder="Telefonszám...">
-                    <label for="telszam">Telefonszám...</label>
-                </div>
-
-                <hr>
-                <h1>Tanulmányok, tapasztalat</h1>
-<!--
-    tanulmányok,
-    nyelvismeret,
-    hobbi,
-    munkatapasztalat
--->
-                <div class="form-floating mb-3">
-
-                    <h3>Tanulmány kezdete</h3>
-                    <input type="number" id="tankezd" class="form-control mb-3" placeholder="..." min="1900" max="2022">
-                    <select class="form-select mb-3" id="honapokkezd">
-                        <option value="" selected>Hónap</option>
-                        <option value="Január">Január</option>
-                        <option value="Február">Február</option>
-                        <option value="Március">Március</option>
-                        <option value="Április">Április</option>
-                        <option value="Május">Május</option>
-                        <option value="Június">Június</option>
-                        <option value="Július">Július</option>
-                        <option value="Augusztus">Augusztus</option>
-                        <option value="Szeptember">Szeptember</option>
-                        <option value="Október">Október</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
-                    </select>
-                    <select id="napokkezd" class="form-select mb-3"></select>
-                    <p class="text-muted">Pl.: 2018 szeptember 1</p>
-
-                    <h3>Tanulmány vége</h3>
-                    <input type="number" id="tanveg" class="form-control mb-3" placeholder="..." min="1900" max="2022">
-                    <select class="form-select mb-3" id="honapokveg">
-                        <option value="" selected>Hónap</option>
-                        <option value="Január">Január</option>
-                        <option value="Február">Február</option>
-                        <option value="Március">Március</option>
-                        <option value="Április">Április</option>
-                        <option value="Május">Május</option>
-                        <option value="Június">Június</option>
-                        <option value="Július">Július</option>
-                        <option value="Augusztus">Augusztus</option>
-                        <option value="Szeptember">Szeptember</option>
-                        <option value="Október">Október</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
-                    </select>
-                    <select id="napokveg" class="form-select mb-3"></select>
-                    <p class="text-muted">Pl.: 2022 január 15</p>
-
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" id="" class="form-control" placeholder="...">
-                    <label for="">...</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" id="" class="form-control" placeholder="...">
-                    <label for="">...</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" id="" class="form-control" placeholder="...">
-                    <label for="">...</label>
-                </div>
-
-            </form>
+            <div id="content"></div>
         </main>
         <footer></footer>
     </div>
