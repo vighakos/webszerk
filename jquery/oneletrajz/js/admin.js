@@ -22,6 +22,16 @@ if (adatok = localStorage.getItem('oneletrajzok')) {
     oneletrajzok = JSON.parse(adatok)
 }
 
+veznev.value = oneletrajzok[0].veznev
+kernev.value = oneletrajzok[0].kernev
+email.value = oneletrajzok[0].email
+cim.value = oneletrajzok[0].cim
+telszam.value = oneletrajzok[0].telszam
+telszam.value = oneletrajzok[0].telszam
+hobbik.value = oneletrajzok[0].hobbik
+egyeb.value = oneletrajzok[0].egyeb
+
+/*
 oneletrajzok[0] = {
     'id': 0,
     'veznev': "Vigh",
@@ -41,7 +51,7 @@ oneletrajzok[0] = {
     'egyeb': ""
 }
 localStorage.setItem('oneletrajzok', JSON.stringify(oneletrajzok))
-
+*/
 $("#szulho").on("change", () => {
     $("#szulnap").html(napFeltolt($("#szulho").val()))
 })
@@ -74,9 +84,10 @@ $("#felveszBtn").on("click", () => {
             'hobbik': hobbik.value,
             'egyeb': egyeb.value
         }
-        oneletrajzok.push(oneletrajz)
+        oneletrajzok[0] = oneletrajz
         localStorage.setItem('oneletrajzok', JSON.stringify(oneletrajzok))
-        alert('Önéletrajz felvéve!');
+        alert('Önéletrajz frissítve!');
+        location.href = "/jquery/oneletrajz/index.html"
     }
 })
 

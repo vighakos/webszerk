@@ -4,6 +4,10 @@ if (adatok = localStorage.getItem('oneletrajzok')) {
     oneletrajzok = JSON.parse(adatok)
 }
 
+if (oneletrajzok.length == 0) {
+    document.location.href = '/jquery/oneletrajz/admin.html'
+}
+
 $('document').ready(function () {
     $('#content').html(loadContent())
 })
