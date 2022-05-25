@@ -8,50 +8,21 @@ let oneletrajzok = [],
     szulev = form.szulev,
     szulho = form.szulho,
     szulnap = form.szulnap,
-    nyelvek = [
-        {'nyelv1': form.nyelv1.value},
-        {'nyelv2': form.nyelv2.value},
-        {'nyelv3': form.nyelv3.value}
-    ],
+    nyelv1 = form.nyelv1.value,
+    nyelv2 = form.nyelv1.value,
+    nyelv3 = form.nyelv1.value,
     hobbik = form.hobbik,
     egyeb = form.egyeb,
     felveszBtn = form.felveszBtn
-
 
 if (adatok = localStorage.getItem('oneletrajzok')) {
     oneletrajzok = JSON.parse(adatok)
 }
 
-veznev.value = oneletrajzok[0].veznev
-kernev.value = oneletrajzok[0].kernev
-email.value = oneletrajzok[0].email
-cim.value = oneletrajzok[0].cim
-telszam.value = oneletrajzok[0].telszam
-telszam.value = oneletrajzok[0].telszam
-hobbik.value = oneletrajzok[0].hobbik
-egyeb.value = oneletrajzok[0].egyeb
-
-/*
-oneletrajzok[0] = {
-    'id': 0,
-    'veznev': "Vigh",
-    'kernev': "Ákos",
-    'email': "akos1569@gmail.com",
-    'cim': "6521 Vaskút, Damjanich u. 66/A",
-    'telszam': "06709679323",
-    'szulev': 2001,
-    'szulho': "December",
-    'szulnap': 15,
-    'nyelvek': [
-        {'nyelv1': "Angol"},
-        {'nyelv2': "Német"},
-        {'nyelv3': "Nincs"}
-    ],
-    'hobbik': "nincs :)",
-    'egyeb': ""
+if (oneletrajzok.length != 0) {
+    feltoltAdatok()
 }
-localStorage.setItem('oneletrajzok', JSON.stringify(oneletrajzok))
-*/
+
 $("#szulho").on("change", () => {
     $("#szulnap").html(napFeltolt($("#szulho").val()))
 })
@@ -76,18 +47,15 @@ $("#felveszBtn").on("click", () => {
             'szulev': szulev.value,
             'szulho': szulho.value,
             'szulnap': szulnap.value,
-            'nyelvek': [
-                {'nyelv1': form.nyelv1.value},
-                {'nyelv2': form.nyelv2.value},
-                {'nyelv3': form.nyelv3.value}
-            ],
+            'nyelv1': form.nyelv1.value,
+            'nyelv2': form.nyelv2.value,
+            'nyelv3': form.nyelv3.value,
             'hobbik': hobbik.value,
             'egyeb': egyeb.value
         }
-        oneletrajzok[0] = oneletrajz
+        oneletrajzok.push(oneletrajz)
         localStorage.setItem('oneletrajzok', JSON.stringify(oneletrajzok))
-        alert('Önéletrajz frissítve!');
-        location.href = "/jquery/oneletrajz/index.html"
+        alert('Önéletrajz felvéve!');
     }
 })
 
@@ -106,4 +74,22 @@ function napFeltolt(napok) {
         str += `<option value=${i+1}>${i+1}</option>`
     }
     return str
+}
+
+function feltoltAdatok() {
+    oneletrajz = oneletrajzok[0]
+
+    veznev.value = oneletrajz.veznev
+    kernev.value = oneletrajz.kernev
+    email.value = oneletrajz.email
+    cim.value = oneletrajz.cim
+    telszam.value = oneletrajz.telszam
+    szulev.value = oneletrajz.szulev
+    szulho.value = oneletrajz.szulho
+    szulnap.value = oneletrajz.szulnap
+    nyelv1.value = oneletrajz.nyelv1
+    nyelv2.value = oneletrajz.nyelv2
+    nyelv3.value = oneletrajz.nyelv3
+    hobbik.value = oneletrajz.hobbik
+    egyeb.value = oneletrajz.egyeb
 }

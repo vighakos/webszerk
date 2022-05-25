@@ -17,7 +17,7 @@ function loadContent() {
 
     oneletrajzok.forEach(oneletrajz => {
         str += `<h1 class="text-center">${oneletrajz.veznev} ${oneletrajz.kernev}</h1>
-        <p>Születési idő: ${oneletrajz.szulev} ${oneletrajz.szulho} ${oneletrajz.szulnap}</p>
+        <p>Születési idő: ${oneletrajz.szulev}. ${oneletrajz.szulho}. ${oneletrajz.szulnap}.</p>
 
         <h3>Elérhetőségek</h3>
         <hr>
@@ -30,9 +30,9 @@ function loadContent() {
 
         <h5>Tanult nyelvek:</h5>
         <ul>
-            <li>${oneletrajz.nyelvek.nyelv1}</li>
-            <li>${oneletrajz.nyelvek.nyelv2}</li>
-            <li>${oneletrajz.nyelvek.nyelv3}</li>
+            <li>${oneletrajz.nyelv1}</li>
+            <li>${oneletrajz.nyelv2}</li>
+            <li>${oneletrajz.nyelv3}</li>
         </ul>
 
         <h3>Egyebek</h3>
