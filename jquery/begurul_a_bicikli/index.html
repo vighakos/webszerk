@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/admin.js" defer></script>
+
+    <title>Vízibicikli</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Vízibicikli</h1>
+        </header>
+        <main>
+            <form enctype="multipart/form-data">
+                
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="nev" placeholder="Név...">
+                    <label for="nev">Név...</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <select id="azon" class="form-select">
+                        <option value="" selected>Válasszon egy járművet</option>
+                        <option value="A1">A1</option>
+                        <option value="A2">A2</option>
+                        <option value="B1">🅱1</option>
+                        <option value="B2">🅱2</option>
+                        <option value="C1">C1</option>
+                        <option value="C2">C2</option>
+                    </select>
+                </div>
+                
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="elvitel" placeholder="Elvitel ideje...">
+                    <label for="elvitel">Elvitel ideje...</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="visszahoz" placeholder="Visszahozatal ideje...">
+                    <label for="visszahoz">Visszahozatal ideje...</label>
+                </div>
+
+                <hr>
+                <button class="btn btn-success" id="felveszBtn">Felvétel</button>
+
+            </form>
+        </main>
+    </div>
+</body>
+</html>
