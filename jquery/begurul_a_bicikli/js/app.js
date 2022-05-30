@@ -8,6 +8,7 @@ let jarmuvek = [],
 $(document).ready(function() {
     $("#kolszam").text(`Összes kölcsönzés: ${jarmuvek.length}`)
     $("#penz").text(`Bevétel: ${calculatePenz()}Ft`)
+    fillTable()
 })
 
 if (adatok = localStorage.getItem('jarmuvek')) {
@@ -24,6 +25,7 @@ $("#felveszBtn").on("click", () => {
         alert('Minden mező kitöltése kötelező!')
     } else {
         jarmu = {
+            'id': jarmuvek.length + 1,
             'nev': nev.value,
             'azon': azon.value,
             'elvitel': elvitel.value,
@@ -58,4 +60,25 @@ function calculatePenz() {
         ossz += Math.ceil((vissza_percben - el_percben) / 30) * 2400
     })
     return ossz
+}
+
+function fillTable() {
+    tbody = document.querySelector("#tbod")
+    jarmuvek.forEach(jarmu => {
+        let tr = document.createElement('tr');
+        let td1 = document.createElement('td');
+        let td2 = document.createElement('td');
+        let td3 = document.createElement('td');
+        let td4 = document.createElement('td');
+        let td5 = document.createElement('td');
+        
+        td1.innerText = jarmu.id
+        td2.innerText = jarmu.nev
+        td3.innerText = jarmu.azon
+        td4.innerText = jarmu.elvitel
+        td5.innerText = jarmu.visszahoz
+
+        tr.append(td1, td2, td3, td4, td5)
+        tbody.appendChild(tr)
+    })
 }
