@@ -9,13 +9,15 @@ body{
 }
 
 .victory {
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(36,233,52,1) 100%); 
+  border: 2px limegreen solid;
 }
 
 .defeat {
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(233,36,36,1) 100%); 
+  border: 2px red solid;
+}
+
+.draw {
+  border: 2px yellow solid;
 }
 
 div#choice {
