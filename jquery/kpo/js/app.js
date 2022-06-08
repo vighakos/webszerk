@@ -4,14 +4,42 @@ let ko_valaszt = document.querySelector('#ko'),
     player = document.querySelector('#player'),
     pc = document.querySelector('#pc'),
     acceptBtn = document.querySelector('#acceptBtn'),
-    jatekosok = []
+    jatekosok = [],
+    nev
 
 if (adatok = localStorage.getItem('jatekosok')) {
     jatekosok = JSON.parse(adatok)
 }
 
-getName()
-updateStats()
+$('document').ready(function() {
+    nevBe = getName()
+
+    talalt = false
+    jatekosok.forEach(jatekos => {
+        if (jatekos.nev == nevBe) {
+            nev = nevBe
+            talalt = true
+        }
+    })
+
+    if (!talalt) {
+        nev = nevBe
+        jatekos = {
+            'nev': nevBe,
+            'victories': 0,
+            'defeats': 0,
+            'draws': 0,
+            'ratio': 0,
+            'sum': 0
+        }
+        jatekosok.push(jatekos)
+        localStorage.setItem('jatekosok', JSON.stringify(jatekosok))
+    }
+
+    $("#jatekosnev").text(nev)
+
+    drawTable()
+})
 
 ko_valaszt.addEventListener('click', () => {
     player.classList.add(valaszt(ko_valaszt.id))
@@ -28,24 +56,10 @@ acceptBtn.addEventListener('click', () => {
 })
 
 function getName() {
-    let nev = prompt("Add meg a neved:")
-    jatekosok.forEach(jatekos => {
-        if (jatekosok.nev == nev) {
+    let nevBe = prompt("Add meg a neved:")
 
-        }
-    })
-
-    if (nev == "" || nev == null) nev = "unnamed"
-
-    jatekos = {
-        'id': jatekosok.length + 1,
-        'nev': nev,
-        'nyert': 0,
-        'vesztett': 0,
-        'osszes': 0
-    }
-    jatekosok.push(jatekos)
-    localStorage.setItem('jatekosok', JSON.stringify(jatekosok))
+    if (nevBe == "" || nevBe == null) return "unnamed"
+    else return nevBe
 }
 
 function valaszt(val) {
@@ -130,25 +144,54 @@ function decideWinner(move) {
 function playerVictory() {
     player.classList.add('victory')
     pc.classList.add('defeat')
-    updateStats(player)
+    updateStats('victory')
 }
 
 function pcVictory() {
     pc.classList.add('victory')
     player.classList.add('defeat')
-    updateStats(pc)
+    updateStats('defeat')
 }
 
 function draw() {
     player.classList.add('draw')
     pc.classList.add('draw')
-    updateStats(player)
-    updateStats(pc)
+    updateStats('draw')
 }
 
-function updateStats(winner) {
+function updateStats(result) {
+    jatekosok.forEach(jatekos => {
+        if (jatekos.nev == nev) {
+            switch (result) {
+                case "victory":
+                    jatekos.victories++;
+                    jatekos.sum++;
+                    break;
+            
+                case "defeat":
+                    jatekos.defeats++;
+                    jatekos.sum++;
+                    break;
+            
+                case "draw":
+                    jatekos.draws++;
+                    jatekos.sum++;
+                    break;
+            }
+            jatekos.ratio = (jatekos.victories * 100 / jatekos.sum).toFixed(2)
+        }
+    })
+
+    jatekosok = jatekosok.sort((a, b) => b.victories - a.victories)
+
+    localStorage.setItem('jatekosok', JSON.stringify(jatekosok))
+    drawTable()
+}
+
+function drawTable() {
     tbody = document.querySelector("#tbody")
     tbody.innerHTML = ""
+    db = 1
     jatekosok.forEach(jatekos => {
         let tr = document.createElement('tr');
         let td1 = document.createElement('td');
@@ -156,14 +199,19 @@ function updateStats(winner) {
         let td3 = document.createElement('td');
         let td4 = document.createElement('td');
         let td5 = document.createElement('td');
+        let td6 = document.createElement('td');
+        let td7 = document.createElement('td');
         
-        td1.innerText = jatekos.id
+        td1.innerText = db
         td2.innerText = jatekos.nev
-        td3.innerText = jatekos.nyert
-        td4.innerText = jatekos.vesztett
-        td5.innerText = jatekos.osszes
+        td3.innerText = jatekos.victories
+        td4.innerText = jatekos.defeats
+        td5.innerText = jatekos.draws
+        td6.innerText = jatekos.ratio + "%"
+        td7.innerText = jatekos.sum
 
-        tr.append(td1, td2, td3, td4, td5)
+        tr.append(td1, td2, td3, td4, td5, td6, td7)
         tbody.appendChild(tr)
+        db++
     })
 }

@@ -13,17 +13,23 @@
     <script src="js/bootstrap.min.js" defer></script>
     <script src="js/app.js" defer></script>
 
-    <title>Kő, pappir, olló</title>
+    <title>Kő, papír, olló</title>
 </head>
 <body>
     <div class="content">
         <header>
-            <h1></h1>
+            <h1>Kő, papír, olló</h1>
         </header>
         <main>
             <div id="playarea">
-                <div id="player" class="img"></div>
-                <div id="pc" class="img"></div>
+                <div>
+                    <h2 id="jatekosnev"></h2>
+                    <div id="player" class="img"></div>
+                </div>
+                <div>
+                    <h2>PC</h2>
+                    <div id="pc" class="img"></div>
+                </div>
             </div>
             <hr>
             <div id="choice">
@@ -31,7 +37,11 @@
                 <div id="papir" class="img papir"></div>
                 <div id="ollo" class="img ollo"></div>
             </div>
-            <button class="btn btn-success" id="acceptBtn">Mehet</button>
+
+            <div id="btn">
+                <button class="btn btn-success" id="acceptBtn">Mehet</button>
+            </div>
+            
             <div id="stats">
                 <table class="table">
                     <tr>
@@ -40,6 +50,8 @@
                             <td>Játékos neve</td>
                             <td>Nyert</td>
                             <td>Vesztett</td>
+                            <td>Döntetlen</td>
+                            <td>%</td>
                             <td>Összes játék</td>
                         </thead>
                         <tbody id="tbody">
