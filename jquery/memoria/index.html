@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Memória Játék</h1>
+        </header>
+        <main>
+            <div id="startPanel" class="text-center col-lg-6 offset-lg-3">
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="gamerName" placeholder="">
+                    <label for="gamerName">A játékos neve</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <select class="form-select" id="gameType" aria-label="Floating label select example">
+                      <option value="1">Easy</option>
+                      <option value="2">Medium</option>
+                      <option value="3">Hard</option>
+                    </select>
+                    <label for="gameType">Válassz nehézségi fokozatot</label>
+                </div>
+                <button class="btn btn-success btn-lg mb-3" id="startBtn">Kezdődhet a játék!</button>
+            </div>
+            <div id="gameTable">
+                <div class="row">
+                    <div class="tileBox col-3">
+                        <div class="tile">1</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">2</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">3</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">4</div>
+                    </div>
+
+                    <div class="tileBox col-3">
+                        <div class="tile">1</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">2</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">3</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">4</div>
+                    </div>
+
+                    <div class="tileBox col-3">
+                        <div class="tile">1</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">2</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">3</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">4</div>
+                    </div>
+
+                    <div class="tileBox col-3">
+                        <div class="tile">1</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">2</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">3</div>
+                    </div>
+                    <div class="tileBox col-3">
+                        <div class="tile">4</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-floating mb-3 col-4">
+                        <input type="text" class="form-control" id="time" placeholder="" value="00:00:00" disabled>
+                        <label for="time">Idő:</label>
+                    </div>
+                    <div class="form-floating mb-3 col-4">
+                        <input type="text" class="form-control" id="time" placeholder="" value="0/8" disabled>
+                        <label for="time">Megtalált/Hátralévő:</label>
+                    </div>
+                    <button class="btn btn-danger btn-lg mb-3 col-4" id="restartBtn">Újrakezdem</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            Készítette: Bajai SZC Türr István Technikum - 1/13.SZFT
+        </footer>
+    </div>
+</body>
+</html>
