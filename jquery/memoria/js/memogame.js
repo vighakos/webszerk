@@ -5,6 +5,7 @@ let game = false,
     seconds,
     gameTime,
     tilesCount,
+    showTileCount,
     tiles = [];
 
 $(document).ready(() => {
@@ -12,6 +13,7 @@ $(document).ready(() => {
     difficulty = $('#gameType').val();
     minutes = 0;
     seconds = 0;
+    showTileCount = 0;
     clearInterval(gameTime);
 });
 
@@ -75,36 +77,64 @@ function generateTable() {
         }
         tiles.push(tile);
     }
-    generateValues()
+    generateValues();
 }
 
 function generateValues() {
-    let x, y
-    for(i = 0; i < tilesCount / 2; i++){
+    let x, y;
+    for (let i = 0; i < tilesCount / 2; i++) {
+
         do {
-            x = Math.round(Math.random() * (tilesCount - 1))
-            y = Math.round(Math.random() * (tilesCount - 1))
-        } while ((tiles[x].value != -1) || (tiles[y].value != -1) && (x != y) || (x == y));
+
+            x = Math.round(Math.random() * (tilesCount - 1));
+            y = Math.round(Math.random() * (tilesCount - 1));
+
+        } while ((tiles[x].value != -1) || (tiles[y].value != -1) || (x == y));
+
+        tiles[x].value = i;
+        tiles[y].value = i;
     }
-    tiles[x].value = i
-    tiles[y].value = i
 }
 
 function rotate(id) {
     if (showTileCount == 2) {
-        for(i = 0; i < tilesCount; i++){
+
+        // visszaforgatás
+        for (let i = 0; i < tilesCount; i++) {
             if (tiles[i].status == 1) {
-                $('#tile_' + i).removeClass('tileRotate')
-                $('#tile_' + i).Class('tileRotateInverse')
-                $('#tile_' + i).html('<div class="tile"></div>')
-                tiles[i].status = 0
+                $('#tile_' + i).removeClass('tileRotate');
+                $('#tile_' + i).addClass('tileRotateInverse');
+                $('#tile_' + i).html('<div class="tile"></div>');
+                tiles[i].status = 0;
             }
         }
-        showTileCount = 0
-        
+        showTileCount = 0;
     }
-    $('#tile_' + id).addClass('tileRotate')
-    $('#tile_' + id).html('<div class="tile">' + tiles[id].value + '</div>')
-    tiles[id].status = 1
-    showTileCount++
+    $('#tile_' + id).addClass('tileRotate');
+    $('#tile_' + id).removeClass('tileRotateInverse');
+    $('#tile_' + id).html('<div class="tile"><img src="img/' + tiles[id].value + '.png" class="pic"></div>');
+    tiles[id].status = 1;
+    showTileCount++;
+
+    if (showTileCount == 2) {
+        // ha egyezőt találtunk
+        let values = [];
+        for (let i = 0; i < tilesCount; i++) {
+            if (tiles[i].status == 1) {
+                values.push(tiles[i]);
+            }
+        }
+        if (values[0].value == values[1].value) {
+            tiles[values[0].id].status = 2;
+            tiles[values[1].id].status = 2;
+            setTimeout(() => {
+                $('#tile_' + values[0].id).addClass('tileZoomOut');
+                $('#tile_' + values[0].id).html('<div class="tile"></div>');
+                $('#tile_' + values[1].id).addClass('tileZoomOut');
+                $('#tile_' + values[1].id).html('<div class="tile"></div>');
+            }, 1000);
+
+        }
+    }
+
 }
