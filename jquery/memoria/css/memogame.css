@@ -1,0 +1,30 @@
+header {
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+}
+
+.tileBox {
+    margin-bottom: 20px;
+}
+
+.tile {
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    height: 80px;
+    text-align: center;
+    background-color: silver;
+    cursor: pointer;
+}
+
+#gameTable {
+    display: none;
+}
+
+#startPanel {
+    display: block;
+}
